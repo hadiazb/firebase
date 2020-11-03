@@ -1,0 +1,37 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(4, 8, 39);
+	color: beige;
+
+	&__title {
+		margin: 40px 0 20px;
+	}
+
+	&__button {
+		height: 30px;
+		width: 200px;
+		margin-bottom: 40px;
+		border-radius: 3px;
+		border: 1px solid beige;
+		outline: none;
+		color: beige;
+		background-color: rgba(0, 0, 0, 0.4);
+		cursor: pointer;
+	}
+
+	&__data {
+		margin: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+
+		&-img {
+			margin: 10px 0 20px;
+			border-radius: 50%;
+		}
+	}
+}
