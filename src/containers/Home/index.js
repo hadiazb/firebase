@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import firebase from 'firebase';
+import FileUpload from '../../components/FileUpload/index';
 import './style.scss';
 
 const Home = () => {
@@ -12,6 +13,16 @@ const Home = () => {
 			.auth()
 			.signInWithPopup(provider)
 			.then((result) => setUser(result.user))
+			.catch((error) =>
+				console.log(`Error ${error.code}: ${error.message}`)
+			);
+	};
+
+	const handleLogout = () => {
+		firebase
+			.auth()
+			.signOut()
+			.then((result) => setUser(null))
 			.catch((error) =>
 				console.log(`Error ${error.code}: ${error.message}`)
 			);
@@ -30,6 +41,13 @@ const Home = () => {
 						Hola, {user.displayName}! has hecho login en nuestra
 						app
 					</p>
+					<button
+						className='login__button'
+						onClick={handleLogout}
+					>
+						Salir
+					</button>
+					<FileUpload />
 				</div>
 			);
 		} else {
